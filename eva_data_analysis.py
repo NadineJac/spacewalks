@@ -1,6 +1,6 @@
 # https://data.nasa.gov/resource/eva.json (with modifications)
-data_f = open('./eva-data.json', 'r')
-data_t = open('./eva-data.csv','w')
+data_f = open('./eva-data.json', 'r',encoding='utf-8')
+data_t = open('./eva-data.csv','w',encoding='utf-8')
 g_file = './cumulative_ev_graph.png'
 
 fieldnames = ("EVA #", "Country", "Crew    ", "Vehicle", "Date", "Duration", "Purpose")
