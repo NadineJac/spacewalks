@@ -1,16 +1,17 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
+
 def read_json_to_dataframe(input_file):
     """
     Read the data from a JSON file into a Pandas dataframe.
-    lean the data by removing incomplete rows and sort by date.
+    Clean the data by removing any incomplete rows and sort by date
 
     Args:
-        input_file (str): The path to the JSON file.
+        input_file_ (str): The path to the JSON file.
 
-    Returns: 
-        eva_df (pd.DataFrame): The cleaned and sorted data as dataframe structure.
+    Returns:
+         eva_df (pd.DataFrame): The cleaned and sorted data as a dataframe structure
     """
     print(f'Reading JSON file {input_file}')
     # Read the data from a JSON file into a Pandas dataframe
@@ -24,13 +25,14 @@ def read_json_to_dataframe(input_file):
 
 def write_dataframe_to_csv(df, output_file):
     """
-    Write a pandas dataframe to a CSV file without headers.
+    Write the dataframe to a CSV file.
 
     Args:
-        df (pd.DataFrame): The dataframe structure.
-        output_file (str): The path to the CSV.
+        df (pd.DataFrame): The input dataframe.
+        output_file (str): The path to the output CSV file.
 
-    Returns: NA
+    Returns:
+        None
     """
     print(f'Saving to CSV file {output_file}')
     # Save dataframe to CSV file for later analysis
