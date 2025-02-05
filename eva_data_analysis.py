@@ -3,15 +3,20 @@ import pandas as pd
 
 # Plot extra-vehicular activity (eva) of nasa over time
 
+def read_json_to_df(input_file):
+    print(f'Reading JSON file {input_file}')
+    eva_df = pd.read_json(input_file, convert_dates=['date'])
+    eva_df['eva'] = eva_df['eva'].astype(float)  # float needed for calculations
+    eva_df.dropna(axis=0, inplace=True)  # drop missing values
+    eva_df.sort_values('date', inplace=True)  # sort data by date to calculate cumulative eva
+    return eva_df
+
 # Data source: https://data.nasa.gov/resource/eva.json (with modifications)
 input_file = open('./eva-data.json', 'r')
 output_file = open('./eva-data.csv', 'w')
 graph_file = './cumulative_eva_graph.png'
 
-eva_df = pd.read_json(input_file, convert_dates=['date'])
-eva_df['eva'] = eva_df['eva'].astype(float)  # float needed for calculations
-eva_df.dropna(axis=0, inplace=True)  # drop missing values
-eva_df.sort_values('date', inplace=True)  # sort data by date to calculate cumulative eva
+eva_df = read_json_to_df(input_file) # read in eva JSON to pandas df
 
 eva_df.to_csv(output_file, index=False)  # save data without headers
 
