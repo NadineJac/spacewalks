@@ -12,14 +12,12 @@ fieldnames = ("EVA #", "Country", "Crew    ", "Vehicle", "Date", "Duration", "Pu
 
 data=[]
 
-
 for i in range(374):
     line=input_file.readline()
     print(line)
     data.append(json.loads(line[1:-1]))
 #data.pop(0)
 ## Comment out this bit if you don't want the spreadsheet
-
 
 w=csv.writer(output_file)
 
@@ -53,8 +51,6 @@ for i in time:
     t.append(t[-1]+i)
 
 date,time = zip(*sorted(zip(date, time)))
-
-
 
 plt.plot(date,t[1:], 'ko-')
 plt.xlabel('Year')
