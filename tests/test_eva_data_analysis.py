@@ -19,6 +19,7 @@ def test_text_to_duration_integer():
 @pytest.mark.parametrize("input_value, expected_result", [
     ("Valentina Tereshkova;", 1),
     ("Judith Resnik; Sally Ride;", 2),
+    ("Judith Resnik; Sally Ride; A Name;", 3),
 ])
 def test_calculate_crew_size(input_value, expected_result):
     """
