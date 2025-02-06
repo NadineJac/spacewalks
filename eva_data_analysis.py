@@ -4,6 +4,7 @@ import datetime as dt
 import matplotlib.pyplot as plt
 import pandas as pd
 import sys
+import os
 
 def main(input_file, output_file, graph_file):
     print("--START--")
@@ -111,8 +112,8 @@ def plot_cumulative_time_in_space(df, graph_file):
 if __name__ == "__main__":
 
     if len(sys.argv) < 3:
-        input_file = './data/eva-data.json'
-        output_file = './results/eva-data.csv'
+        input_file = os.path.join('data','eva-data.json')
+        output_file = os.path.join('results','eva-data.csv')
         print(f'Using default input and output filenames')
     else:
         input_file = sys.argv[1]
