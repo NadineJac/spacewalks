@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: Spacewalks
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Jacobsen
+    name-particle: Nadine
+repository-code: >-
+  https://github.com/NadineJac/spacewalks.git
+abstract: >-
+  A Python script to analyse NASA extravehicular activity
+  data
+keywords:
+  - NASA
+  - Extravehicular activity
