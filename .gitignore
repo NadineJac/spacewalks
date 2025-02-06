@@ -1,2 +1,3 @@
 venv_*
 __pycache__
+.coverage
