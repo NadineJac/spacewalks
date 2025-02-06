@@ -38,21 +38,23 @@ def write_dataframe_to_csv(df, output_file):
     # Save dataframe to CSV file for later analysis
     df.to_csv(output_file, index=False)
 
+
 def plot_cumulative_time_in_space(eva_data, graph_file):
     """
-    PLot cumulative time in space. To do so calculate cumulative time in hours.
+    Plot cumulative time in space. To do so calculate cumulative time in hours.
 
     Args:
         df (pd.DataFrame): The input dataframe.
-        grapgh_file (str): The path to the output CSV file.
+        grapgh_file (str): The path to the output PNG file.
 
     Returns:
         None
     """
     print(f'Plotting cumulative spacewalk duration and saving to {graph_file}')
-    # Plot cumulative time spent in space over years
+    # Process duration from a string (00:00) to a float
     eva_data['duration_hours'] = eva_data['duration'].str.split(":").apply(lambda x: int(x[0]) + int(x[1])/60)
     eva_data['cumulative_time'] = eva_data['duration_hours'].cumsum()
+    # Plot cumulative time spent in space over years
     plt.plot(eva_data['date'], eva_data['cumulative_time'], 'ko-')
     plt.xlabel('Year')
     plt.ylabel('Total time spent in space to date (hours)')
